@@ -18,7 +18,7 @@ public class SwitchAlert {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseURL = "https://letskodeit.teachable.com/p/practice";
+		baseURL = "https://courses.letskodeit.com/practice";
 
 		// Maximize the browser's window
 		driver.manage().window().maximize();
@@ -43,7 +43,7 @@ public class SwitchAlert {
 		driver.findElement(By.id("confirmbtn")).click();
 		Thread.sleep(3000);
 		Alert alert = driver.switchTo().alert();
-		alert.dismiss();;
+		alert.dismiss();
 	}
 
 	@After
