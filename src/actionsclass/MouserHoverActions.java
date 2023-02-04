@@ -19,8 +19,9 @@ public class MouserHoverActions {
 
 	@Before
 	public void setUp() throws Exception {
-
-
+		driver = new FirefoxDriver();
+		baseURL = "https://courses.letskodeit.com/practice";
+		
 		jse = (JavascriptExecutor) driver;
 
 		// Maximize the browser's window
