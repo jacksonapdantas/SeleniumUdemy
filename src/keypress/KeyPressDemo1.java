@@ -17,7 +17,7 @@ public class KeyPressDemo1 {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseURL = "https://letskodeit.teachable.com/";
+		baseURL = "https://courses.letskodeit.com/login";
 
 		// Maximize the browser's window
 		driver.manage().window().maximize();
@@ -27,12 +27,12 @@ public class KeyPressDemo1 {
 	@Test
 	public void testKeyPress() throws InterruptedException {
 		driver.get(baseURL);
-		driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
-		driver.findElement(By.id("user_email")).sendKeys("teste@invalid.com");
+		//driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
+		driver.findElement(By.id("email")).sendKeys("teste@invalid.com");
 		Thread.sleep(2000);
-		driver.findElement(By.id("user_password")).sendKeys("123456");
+		driver.findElement(By.id("password")).sendKeys("123456");
 		Thread.sleep(2000);
-		driver.findElement(By.name("commit")).sendKeys(Keys.ENTER);
+		driver.findElement(By.id("login")).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 	}
 
