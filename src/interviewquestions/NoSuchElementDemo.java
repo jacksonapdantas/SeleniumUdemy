@@ -17,7 +17,7 @@ public class NoSuchElementDemo {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseURL = "https://www.biologiatotal.com.br/login";
+		baseURL = "https://aprovatotal.com.br/login";
 
 		// Maximize the browser's window
 		driver.manage().window().maximize();
@@ -31,7 +31,7 @@ public class NoSuchElementDemo {
 		//Elemento não visivel, pois depende de ação em outro elemento
 		//solução: fazer ação no elemento que deixa visivel o elemento que precisamos clicar
 		
-		driver.findElement(By.xpath("//input[@type=\"email\"]")).sendKeys("teste@hotmail.com");
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("teste@hotmail.com");
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123456");
 		WebElement loginButton = driver.findElement(By.xpath("//button[@type='button']"));
 		loginButton.click();
