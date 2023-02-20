@@ -17,7 +17,7 @@ public class ElementNotClickableDemo {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseURL = "https://letskodeit.teachable.com/";
+		baseURL = "https://courses.letskodeit.com/practice";
 
 		// Maximize the browser's window
 		driver.manage().window().maximize();
@@ -32,13 +32,13 @@ public class ElementNotClickableDemo {
 		//Falha porque não acha o elemento que não foi reenderizado
 		//solução: inserir comando de espera implicito(até 3 segundos) ou e explicito (acima de 3 segundos)
 		
-		driver.findElement(By.xpath("//a[contains(text(),'Login')]")).click();
+		driver.findElement(By.xpath("//a[normalize-space()='Sign In']")).click();
 		//driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		//WebElement emailField = driver.findElement(By.id("user_email"));
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement emailField = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.id("user_email")));
+				ExpectedConditions.visibilityOfElementLocated(By.id("email")));
 		emailField.sendKeys("teste@teste.com");
 		
 		//2. Incorrect locator or type locator
@@ -53,9 +53,9 @@ public class ElementNotClickableDemo {
 		//Falha porque o elemento está em outro frame
 		//solução: Mudar para o frame que está o elemento
 		
-		driver.get("https://letskodeit.teachable.com/p/practice");
+		driver.get("https://courses.letskodeit.com/practice");
 		driver.switchTo().frame("courses-iframe");
-		driver.findElement(By.id("search-courses")).sendKeys("Java");
+		driver.findElement(By.id("search")).sendKeys("Java");
 		driver.switchTo().defaultContent();
 	}
 	
