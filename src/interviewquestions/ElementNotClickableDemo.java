@@ -25,21 +25,21 @@ public class ElementNotClickableDemo {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		driver.get(baseURL);
 		
 		//1. Time Issues
 		//Falha porque não acha o elemento que não foi reenderizado
 		//solução: inserir comando de espera implicito(até 3 segundos) ou e explicito (acima de 3 segundos)
 		
-		driver.findElement(By.xpath("//a[normalize-space()='Sign In']")).click();
+		// descomentar driver.findElement(By.xpath("//a[normalize-space()='Sign In']")).click();
 		//driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		//WebElement emailField = driver.findElement(By.id("user_email"));
-
+//
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement emailField = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.id("email")));
-		emailField.sendKeys("teste@teste.com");
+//		WebElement emailField = wait.until(
+//				ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+//		emailField.sendKeys("teste@teste.com");
 		
 		//2. Incorrect locator or type locator
 		//Falha ao inserir um elemento que não existe
@@ -55,7 +55,7 @@ public class ElementNotClickableDemo {
 		
 		driver.get("https://courses.letskodeit.com/practice");
 		driver.switchTo().frame("courses-iframe");
-		driver.findElement(By.id("search")).sendKeys("Java");
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Java");
 		driver.switchTo().defaultContent();
 	}
 	
