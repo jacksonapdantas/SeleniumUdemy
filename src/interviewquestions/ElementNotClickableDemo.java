@@ -32,14 +32,14 @@ public class ElementNotClickableDemo {
 		//Falha porque não acha o elemento que não foi reenderizado
 		//solução: inserir comando de espera implicito(até 3 segundos) ou e explicito (acima de 3 segundos)
 		
-		// descomentar driver.findElement(By.xpath("//a[normalize-space()='Sign In']")).click();
+		 driver.findElement(By.xpath("//a[normalize-space()='Sign In']")).click();
 		//driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		//WebElement emailField = driver.findElement(By.id("user_email"));
-//
+
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-//		WebElement emailField = wait.until(
-//				ExpectedConditions.visibilityOfElementLocated(By.id("email")));
-//		emailField.sendKeys("teste@teste.com");
+		WebElement emailField = wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+		emailField.sendKeys("teste@teste.com");
 		
 		//2. Incorrect locator or type locator
 		//Falha ao inserir um elemento que não existe
