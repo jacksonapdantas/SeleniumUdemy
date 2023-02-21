@@ -24,7 +24,7 @@ public class Autocomplete {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-
+	
 	@Test
 	public void test() throws InterruptedException {
 		driver.get(baseURL);
