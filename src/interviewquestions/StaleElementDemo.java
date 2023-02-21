@@ -17,7 +17,7 @@ public class StaleElementDemo {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseURL = "https://letskodeit.teachable.com/p/practice";
+		baseURL = "https://courses.letskodeit.com/practice";
 
 		// Maximize the browser's window
 		driver.manage().window().maximize();
